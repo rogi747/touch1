@@ -295,7 +295,7 @@ static BOOL isPlaying = false;
         return;
     }
 
-    NSString *commandToRun = [NSString stringWithFormat:@"zxtouchb -e \"python3 -u \\\"%@\\\" 2>&1 | /var/jb/var/mobile/Library/ZXTouch/coreutils/ScriptRuntime/add_datetime.sh\" >> /var/jb/var/mobile/Library/ZXTouch/coreutils/ScriptRuntime/output", filePath];
+    NSString *commandToRun = [NSString stringWithFormat:@"zxtouchb -e \"python3 -u \\\"%@\\\" 2>&1 | /var/mobile/Library/ZXTouch/coreutils/ScriptRuntime/add_datetime.sh\" >> /var/mobile/Library/ZXTouch/coreutils/ScriptRuntime/output", filePath];
     NSLog(@"com.zjx.springboard: command to run for running py file: %@", commandToRun);
 
     // here I made it run in background because of a weird thing: ios objc cannot call second system() if the first system() does not return

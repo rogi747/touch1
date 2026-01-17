@@ -13,9 +13,8 @@ pccontrol_FILES = Tweak.xm SocketServer.xm Touch.xm Touch_raw.xm Screen.xm Task.
 pccontrol_CFLAGS = -Wno-error -Wno-module-import-in-extern-c -fobjc-arc
 pccontrol_FRAMEWORKS = UIKit AssetsLibrary AVFoundation CoreFoundation CoreMedia CoreVideo IOSurface
 pccontrol_ARCHS = arm64 arm64e
-TARGET := iphone:clang:16.5:14.0
-THEOS_PACKAGE_SCHEME=rootless
-THEOS_PACKAGE_INSTALL_PREFIX=/var/jb
+TARGET := iphone:clang:16.5:13.0
+THEOS_PACKAGE_INSTALL_PREFIX=/
 pccontrol_CCFLAGS = -std=c++11
 
 pccontrol_CFLAGS += -F$(THEOS_PROJECT_DIR)/frameworks
@@ -28,6 +27,4 @@ pccontrol_LIBRARIES = substrate
 include $(THEOS_MAKE_PATH)/tweak.mk
 
 after-install::
-	install.exec "chown -R mobile:mobile /var/jb/var/mobile/Library/ZXTouch && killall -9 SpringBoard;"
-
-
+	install.exec "chown -R mobile:mobile /var/mobile/Library/ZXTouch && killall -9 SpringBoard;"

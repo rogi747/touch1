@@ -5,7 +5,7 @@
 	<key>Label</key>
 	<string>com.zjx.zxtouchd</string>
 	<key>Program</key>
-	<string>/var/jb/usr/bin/zxtouchd</string>
+	<string>/usr/bin/zxtouchd</string>
 	<key>RunAtLoad</key>
 	<true/>
 </dict>

@@ -8,9 +8,8 @@ appdelegate_FILES = Tweak.xm UIKeyboard.xm
 appdelegate_CFLAGS = -Wno-error -Wno-module-import-in-extern-c -fobjc-arc
 
 appdelegate_ARCHS = arm64e arm64
-TARGET := iphone:clang:16.5:14.0
-THEOS_PACKAGE_SCHEME=rootless
-THEOS_PACKAGE_INSTALL_PREFIX=/var/jb
+TARGET := iphone:clang:16.5:13.0
+THEOS_PACKAGE_INSTALL_PREFIX=/
 appdelegate_FRAMEWORKS = UIKit
 #appdelegate_CCFLAGS = -std=c++11
 
