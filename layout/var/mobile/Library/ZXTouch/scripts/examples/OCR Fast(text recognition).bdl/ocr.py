@@ -5,8 +5,8 @@ from zxtouch.toasttypes import *
 import time
 
 current_time = str(int(time.time()))
-DEBUG_IMAGE_PATH = "/var/jb/var/mobile/Library/ZXTouch/scripts/Debug/OCR-debug-image-" + current_time + ".jpg"
-OUTPUT_PATH = "/var/jb/var/mobile/Library/ZXTouch/scripts/Debug/OCR-output-string-" + current_time + ".txt"
+DEBUG_IMAGE_PATH = "/var/mobile/Library/ZXTouch/scripts/Debug/OCR-debug-image-" + current_time + ".jpg"
+OUTPUT_PATH = "/var/mobile/Library/ZXTouch/scripts/Debug/OCR-output-string-" + current_time + ".txt"
 
 
 device = zxtouch("127.0.0.1")

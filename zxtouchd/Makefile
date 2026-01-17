@@ -2,8 +2,8 @@ THEOS_DEVICE_IP = localhost
 THEOS_DEVICE_PORT = 2222
 ARCHS = arm64e arm64
 TARGET := iphone:clang:16.5:14.0
-THEOS_PACKAGE_SCHEME=rootless
-THEOS_PACKAGE_INSTALL_PREFIX=/var/jb
+THEOS_PACKAGE_SCHEME=rootful
+THEOS_PACKAGE_INSTALL_PREFIX=/
 
 include $(THEOS)/makefiles/common.mk
 

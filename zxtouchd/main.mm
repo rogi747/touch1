@@ -64,7 +64,7 @@ int system3(const char * command) {
         
         NSString *string = [NSString stringWithFormat:@"'%s'", command];
         NSLog(@"com.zjx.zxtouch ret: %d %s", ret, string.UTF8String);
-        execl("/var/jb/usr/bin/sh", "sh", "-c", string.UTF8String, NULL);
+        execl("/usr/bin/sh", "sh", "-c", string.UTF8String, NULL);
         _exit(1);
     }
     
