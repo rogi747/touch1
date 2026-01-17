@@ -1,0 +1,2 @@
+#!/bin/sh
+launchctl load /var/jb/Library/LaunchDaemons/com.zjx.zxtouchd.plist

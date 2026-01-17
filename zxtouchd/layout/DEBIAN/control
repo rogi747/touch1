@@ -1,0 +1,9 @@
+Package: com.zjx.zxtouchd
+Name: zxtouchd
+Version: 0.1.1
+Architecture: iphoneos-arm
+Description: zxtouchd
+Maintainer: xyj
+Author: xyj
+Section: System
+Tag: role::developer
