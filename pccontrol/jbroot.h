@@ -17,14 +17,21 @@ static inline const char *JBRootPathC(const char *path) {
     }
     static char buffer[PATH_MAX];
     snprintf(buffer, sizeof(buffer), "/var/jb%s", path);
-    return buffer;
+    if (access(buffer, F_OK) == 0) {
+        return buffer;
+    }
+    return path;
 }
 
 static inline NSString *JBRootPathOC(NSString *path) {
     if (!JBRootIsRootless()) {
         return path;
     }
-    return [@"/var/jb" stringByAppendingString:path];
+    NSString *rootlessPath = [@"/var/jb" stringByAppendingString:path];
+    if (access([rootlessPath fileSystemRepresentation], F_OK) == 0) {
+        return rootlessPath;
+    }
+    return path;
 }
 
 #define JBROOT_PATH(path) JBRootPathC(path)
