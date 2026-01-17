@@ -13,7 +13,7 @@ pccontrol_FILES = Tweak.xm SocketServer.xm Touch.xm Touch_raw.xm Screen.xm Task.
 pccontrol_CFLAGS = -Wno-error -Wno-module-import-in-extern-c -fobjc-arc
 pccontrol_FRAMEWORKS = UIKit AssetsLibrary AVFoundation CoreFoundation CoreMedia CoreVideo IOSurface
 pccontrol_ARCHS = arm64 arm64e
-TARGET := iphone:clang:16.5:14.0
+TARGET := iphone:clang:16.5:13.0
 THEOS_PACKAGE_INSTALL_PREFIX=/
 pccontrol_CCFLAGS = -std=c++11
 

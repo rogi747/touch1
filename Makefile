@@ -1,7 +1,7 @@
 # lipoplastic setup for armv6 + arm64 compilation
 export ARCHS = arm64e arm64
 #export THEOS_DEVICE_IP = 192.168.0.3
-TARGET := iphone:clang:16.5:14.0
+TARGET := iphone:clang:16.5:13.0
 THEOS_PACKAGE_INSTALL_PREFIX=/
 
 SUBPROJECTS = appdelegate zxtouch-binary pccontrol zxtouchd
