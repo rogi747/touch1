@@ -8,7 +8,7 @@
 #include <unistd.h>
 
 static inline int JBRootIsRootless(void) {
-    return access("/var/jb", F_OK) == 0;
+    return access("/var/jb/usr", F_OK) == 0;
 }
 
 static inline const char *JBRootPathC(const char *path) {
