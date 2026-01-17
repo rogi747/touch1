@@ -2,8 +2,14 @@ name: "ZXTouch: build and upload"
 
 on:
   push:
+    branches:
+      - main
     tags:
       - 'v*'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -20,6 +26,27 @@ jobs:
         run: |
           brew install gnu-sed
           echo "$(brew --prefix)/opt/gnu-sed/libexec/gnubin" >> $GITHUB_PATH
+
+      - name: Fix OpenCV framework symlinks
+        run: |
+          set -euo pipefail
+          FRAMEWORK_DIR="frameworks/opencv2.framework"
+          VERSIONS_DIR="${FRAMEWORK_DIR}/Versions"
+          rm -f "${VERSIONS_DIR}/Current"
+          ln -s "A" "${VERSIONS_DIR}/Current"
+          for entry in Headers Modules Resources opencv2; do
+            rm -f "${FRAMEWORK_DIR}/${entry}"
+            ln -s "Versions/Current/${entry}" "${FRAMEWORK_DIR}/${entry}"
+          done
+
+      - name: Fix Debian maintainer script permissions
+        run: |
+          set -euo pipefail
+          chmod 755 \
+            layout/DEBIAN/preinst \
+            layout/DEBIAN/postinst \
+            zxtouchd/layout/DEBIAN/preinst \
+            zxtouchd/layout/DEBIAN/postinst
 
       - name: Install THEOS
         run: |
@@ -50,8 +77,15 @@ jobs:
           echo "DEB_PATH=${DEB_PATH}" >> $GITHUB_OUTPUT
           echo "Found DEB package at: ${DEB_PATH}"
 
+      - name: Upload DEB artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zxtouch-deb
+          path: ${{ steps.find-deb.outputs.DEB_PATH }}
+
       - name: Create Release
         id: create_release
+        if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ github.ref }}
