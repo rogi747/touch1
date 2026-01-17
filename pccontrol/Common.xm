@@ -171,7 +171,7 @@ pid_t system2(const char * command, int * infp, int * outfp)
             ::close(i);
 
         setsid();
-        execl(JBROOT_PATH("/usr/bin/sh"), "sh", "-c", command, NULL);
+        execl(JBROOT_PATH("/bin/sh"), "sh", "-c", command, NULL);
         _exit(1);
     }
 
