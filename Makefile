@@ -2,7 +2,6 @@
 export ARCHS = arm64e arm64
 #export THEOS_DEVICE_IP = 192.168.0.3
 TARGET := iphone:clang:16.5:14.0
-THEOS_PACKAGE_SCHEME=rootful
 THEOS_PACKAGE_INSTALL_PREFIX=/
 
 SUBPROJECTS = appdelegate zxtouch-binary pccontrol zxtouchd

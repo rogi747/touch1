@@ -14,7 +14,6 @@ pccontrol_CFLAGS = -Wno-error -Wno-module-import-in-extern-c -fobjc-arc
 pccontrol_FRAMEWORKS = UIKit AssetsLibrary AVFoundation CoreFoundation CoreMedia CoreVideo IOSurface
 pccontrol_ARCHS = arm64 arm64e
 TARGET := iphone:clang:16.5:14.0
-THEOS_PACKAGE_SCHEME=rootful
 THEOS_PACKAGE_INSTALL_PREFIX=/
 pccontrol_CCFLAGS = -std=c++11
 
